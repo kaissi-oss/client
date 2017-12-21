@@ -674,8 +674,6 @@ protocol teams {
   LookupImplicitTeamRes lookupImplicitTeam(string name, boolean public);
   LookupImplicitTeamRes lookupOrCreateImplicitTeam(string name, boolean public);
 
-  void teamReAddMemberAfterReset(int sessionID, TeamID id, string username);
-
   /**
    * loadTeamPlusApplicationKeys loads team information for applications like KBFS and Chat.
    * If refreshers are non-empty, then force a refresh of the cache if the requirements
@@ -688,7 +686,7 @@ protocol teams {
   TeamAndMemberShowcase getTeamAndMemberShowcase(string name);
   void setTeamShowcase(string name, union { null, boolean } isShowcased, union { null, string } description, union { null, boolean } anyMemberShowcase);
   void setTeamMemberShowcase(string name, boolean isShowcased);
-  
+
   record TeamOperation {
     boolean manageMembers;
     boolean manageSubteams;
